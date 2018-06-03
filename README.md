@@ -13,4 +13,4 @@ Run ``python main.py``
 
 <b>Screenshot</b>
 <br>
-![2048](screenshot.png)
+![2048](window.png)
