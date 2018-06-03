@@ -182,10 +182,10 @@ def show(TABLE):
     for i in range(4):
         for j in range(4):
             pygame.draw.rect(screen, dictcolor1[TABLE[i][j]], (j*boxsize+margin,
-                                              				   i*boxsize+margin,
-                                              				   boxsize-2*margin,
-                                              				   boxsize-2*margin),
-                                              				   thickness)
+                                                               i*boxsize+margin,
+                                                               boxsize-2*margin,
+                                                               boxsize-2*margin),
+                                                               thickness)
             if TABLE[i][j] != 0:
                 order=int(math.log10(TABLE[i][j]))
                 myfont = pygame.font.SysFont("Arial", fontSize[order] , bold=True)
@@ -284,6 +284,9 @@ def moveup(pi,pj,T):
         T[pi][pj]=0
         pi-=1
     return T
+
+def leaderboard():
+    s = 'to show leaderboard'
 
 def terminate():
     pygame.quit()
