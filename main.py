@@ -250,10 +250,40 @@ def movedown(pi,pj,T):
     return T
 
 def moveleft(pi,pj,T):
+    justcomb=False
+    while pj > 0  and (T[pi][pj-1] == 0 or (T[pi][pj-1] == T[pi][pj] and not justcomb)):
+        if T[pi][pj-1] == 0:
+            T[pi][pj-1] = T[pi][pj]   
+        elif T[pi][pj-1]==T[pi][pj]:
+            T[pi][pj-1] += T[pi][pj]
+            justcomb=True
+        T[pi][pj]=0
+        pj-=1
+    return T
 
 def moveright(pi,pj,T):
+    justcomb=False
+    while pj < 3 and (T[pi][pj+1] == 0 or (T[pi][pj+1] == T[pi][pj] and not justcomb)):
+        if T[pi][pj+1] == 0:
+            T[pi][pj+1] = T[pi][pj]
+        elif T[pi][pj+1]==T[pi][pj]:
+            T[pi][pj+1] += T[pi][pj]
+            justcomb=True
+        T[pi][pj] = 0
+        pj+=1
+    return T
 
 def moveup(pi,pj,T):
+    justcomb=False
+    while pi > 0 and (T[pi-1][pj] == 0 or (T[pi-1][pj] == T[pi][pj] and not justcomb)):
+        if T[pi-1][pj] == 0:
+            T[pi-1][pj] = T[pi][pj] 
+        elif T[pi-1][pj]==T[pi][pj]:
+            T[pi-1][pj] += T[pi][pj]
+            justcomb=True
+        T[pi][pj]=0
+        pi-=1
+    return T
 
 def terminate():
     pygame.quit()
